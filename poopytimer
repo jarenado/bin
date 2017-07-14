@@ -1,0 +1,11 @@
+#!/bin/bash
+while getopts t:m: option
+do
+ case "${option}"
+ in
+ t) time=${OPTARG};;
+ m) message=${OPTARG};;
+ esac
+done
+sleep $time
+notify-send -t 0 -u critical "$message" "$time"
